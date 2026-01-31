@@ -25,6 +25,7 @@ const SignIn = () => {
       dispatch(signInStart());
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signin`, {
         method: "POST",
+        credentials: "include",
         headers: {
           "content-type": "application/json",
         },
