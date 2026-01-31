@@ -124,7 +124,7 @@ export default function CreateListing() {
       if (formData.imageUrls.length < 1)
         return setError("You must upload at least 1 image");
       setError(false);
-      const res = await fetch("${import.meta.env.VITE_API_URL}/api/listing/create", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

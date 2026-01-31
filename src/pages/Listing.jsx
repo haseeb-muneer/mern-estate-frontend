@@ -29,7 +29,7 @@ export default function Listing() {
     const fetchListing = async () => {
       try {
         const id = params.listingId;
-        const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/listing/get/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/get/${id}`);
         const data = await res.json();
         console.log(data);
 
