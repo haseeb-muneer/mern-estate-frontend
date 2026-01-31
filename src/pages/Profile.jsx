@@ -82,7 +82,7 @@ const Profile = () => {
       // console.log(currentUser);
       e.preventDefault();
       dispatch(updateUserStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/user/update/${currentUser._id}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -104,7 +104,7 @@ const Profile = () => {
   const handleDelete = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -120,7 +120,7 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       dispatch(signoutStart());
-      const res = await fetch("/api/auth/signout");
+      const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/auth/signout`);
       const data = res.json();
       console.log(data);
       if (data.success === false) {
@@ -134,7 +134,7 @@ const Profile = () => {
   const handlegetListings = async () => {
     try {
       setShowListingError(false);
-      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/user/listings/${currentUser._id}`);
       const data = await res.json();
       if (data.success === false) {
         setShowListingError(true);
@@ -148,7 +148,7 @@ const Profile = () => {
   };
   const handleDeleteListing = async (id) => {
     try {
-      const res = await fetch(`/api/listing/delete/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/listing/delete/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();

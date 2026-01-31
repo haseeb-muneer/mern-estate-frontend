@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchoffer = async () => {
       try {
-        const res = await fetch("/api/listing/get?offer=true&limit=4");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/get?offer=true&limit=4`);
         const data = await res.json();
         setOfferListing(data);
         fetchrent();
@@ -24,7 +24,7 @@ export default function Home() {
     };
     const fetchsale = async () => {
       try {
-        const res = await fetch("/api/listing/get?type=sale&limit=4");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/get?type=sale&limit=4`);
         const data = await res.json();
         setSaleListing(data);
         console.log(saleListing);
@@ -34,7 +34,7 @@ export default function Home() {
     };
     const fetchrent = async () => {
       try {
-        const res = await fetch("/api/listing/get?type=rent&limit=4");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/get?type=rent&limit=4`);
         const data = await res.json();
         setRentListing(data);
         fetchsale();

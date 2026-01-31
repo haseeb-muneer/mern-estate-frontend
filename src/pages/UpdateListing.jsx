@@ -32,7 +32,7 @@ export default function CreateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const id = params.listingId;
-      const res = await fetch(`/api/listing/get/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/get/${id}`);
       const data = await res.json();
       if (data.seccess === false) {
         console.log(data.message);
@@ -139,7 +139,7 @@ export default function CreateListing() {
       if (formData.imageUrls.length < 1)
         return setError("You must upload at least 1 image");
       setError(false);
-      const res = await fetch(`/api/listing/update/${params.listingId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/listing/update/${params.listingId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
